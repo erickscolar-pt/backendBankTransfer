@@ -1,7 +1,6 @@
 package com.banktransfer.model.entity;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,11 +32,14 @@ public class Transfers {
     @Column(name = "valor", nullable = false)
     private double valor;
 
+    @Column(name = "valortaxa", nullable = false)
+    private double taxa;
+
     @Column(name = "data_transferencia", nullable = false)
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate datatransferencia;
 
     @Column(name = "data_agendamento", nullable = false)
     @JsonFormat(pattern = "dd/MM/yyyy")
-    private Date dataagendamento;
+    private LocalDate dataagendamento;
 }
