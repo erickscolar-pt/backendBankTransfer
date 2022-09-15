@@ -42,4 +42,5 @@ public class Transfers {
     @Column(name = "data_agendamento", nullable = false)
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataagendamento;
+
 }

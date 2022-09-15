@@ -1,5 +1,6 @@
 package com.banktransfer.service;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -16,6 +17,11 @@ public class TransfersService {
 
     @Autowired
     private TransferSaveService transferSaveService;
+
+    public static double withMathRound(double value, int places) {
+        double scale = Math.pow(10, places);
+        return Math.round(value * scale) / scale;
+    }
 
     public Double calculaTaxa(Double valor, Long diff){
 
@@ -50,7 +56,9 @@ public class TransfersService {
                 taxa = 0.0;
             }
         }
-        return taxa;
+        Double taxacao = withMathRound(taxa, 2);
+        
+        return taxacao;
     }
 
 
